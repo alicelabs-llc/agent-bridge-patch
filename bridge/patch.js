@@ -4,7 +4,7 @@
  * instaladas. Cero reinstalaciones. Versioned por __v.
  */
 (function () {
-  const V = "2.5.3";
+  const V = "2.5.4";
   if (window.__ABPATCH && window.__ABPATCH.__v === V) {
     return { already: true, patched: true, version: V };
   }
@@ -81,7 +81,9 @@
     portfolio: "https://github.com/eddyflores100-lang",
     salary_text: "USD 1,000 - 1,400 / month, negotiable (remote contract)",
     tools_text: "WordPress, Shopify, HTML/CSS/JS, AI chatbots (WhatsApp), n8n, Make, Zapier, CRM integrations",
-    cover_letter: ""
+    cover_letter: "",
+    location: "Quito, Ecuador (GMT-5) — remoto",
+    animated_film: "Spirited Away (Studio Ghibli) — Spider-Verse close second"
   };
 
   /* ==================== escaneo del formulario ==================== */
@@ -274,7 +276,8 @@
     if (/cover letter|carta de presentaci|motivaci/.test(l)) return cfg.cover_letter != null ? cfg.cover_letter : "";
     if (/tools|software|stack|experience with|technolog/.test(l)) return cfg.tools_text;
     if (/phone|telefono|celular|m\u00f3vil|movil/.test(l)) return cfg.phone || "";
-    if (/location|ciudad|city/.test(l)) return cfg.location || "";
+    if (/animated film|best (film|movie)/.test(l)) return cfg.animated_film != null ? cfg.animated_film : "Spirited Away";
+    if (/location|located|ciudad|city/.test(l)) return cfg.location || "";
     if (/university|universidad|bachelor|currently pursuing|currently enrolled|currently stud|grado acad/.test(l)) return cfg.university_text != null ? cfg.university_text : "N/A";
     if (/how did you hear|where did you hear|como te enteraste|cómo te enteraste/.test(l)) return cfg.heard_text != null ? cfg.heard_text : "LinkedIn";
     return null;
